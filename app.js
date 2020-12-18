@@ -17,7 +17,9 @@ app.use(bodyParser.json());
 const getConnectDB = require('./config/configDB');
 mongoose.connect(getConnectDB.getDbConnectionString(), (err) => {
     if(err) console.log(err)
-})
+});
+mongoose.Promise = global.Promise;
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
