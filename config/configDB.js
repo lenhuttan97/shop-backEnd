@@ -1,7 +1,7 @@
-var configDB = require('./configDB.json');
+var config = require('./config.json');
 
 module.exports = {
     getDbConnectionString: function(){
-        return 'mongodb://'+configDB.myHost+"/"+configDB.myDB;
+        return 'mongodb://'+config.database.myHost+"/"+config.database.myDB;
     }
 }

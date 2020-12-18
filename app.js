@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 
 const routeProduct = require('./api/routes/products');
 const routeOrder = require('./api/routes/orders');
+const routeUser = require('./api/routes/users')
 
 app.use(morgan('dev')); 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -36,6 +37,8 @@ app.use((req, res, next) => {
 
 app.use('/products', routeProduct);
 app.use('/orders', routeOrder);
+app.use('/users', routeUser);
+app.use('/uploads',express.static('uploads'));
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
